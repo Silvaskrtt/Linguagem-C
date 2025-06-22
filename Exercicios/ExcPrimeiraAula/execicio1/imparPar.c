@@ -23,4 +23,5 @@
         }else{
             printf("O numero %d e Impar!", num);
         }
+            return 0;
     }
