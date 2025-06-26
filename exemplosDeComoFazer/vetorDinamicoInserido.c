@@ -11,7 +11,7 @@ int main() {
     // Alocando memória para n inteiros
     vetor = (int *) malloc(n * sizeof(int));
 
-    if (vetor == NULL) {
+    if(vetor == NULL){
         printf("Erro de alocação de memoria!\n");
         return 1;
     }
