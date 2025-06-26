@@ -8,22 +8,22 @@ int main() {
     int numero;
 
     vetor = (int *) malloc(capacidade * sizeof(int));
-    if (vetor == NULL) {
+    if(vetor == NULL){
         printf("Erro ao alocar memoria.\n");
         return 1;
     }
 
-    printf("Digite numeros inteiros (digite -1 para parar):\n");
+    printf("Digite numeros inteiros (digite 'p' para parar):\n");
 
-    while (1) {
+    while(1){
         printf("Numero %d: ", tamanho + 1);
         scanf("%d", &numero);
 
-        if (numero == -1)
+        if(numero == 'p')
             break;
 
         // Cresce o vetor se necessário
-        if (tamanho == capacidade) {
+        if(tamanho == capacidade){
             capacidade *= 2;
             vetor = (int *) realloc(vetor, capacidade * sizeof(int));
             if (vetor == NULL) {
@@ -38,7 +38,7 @@ int main() {
 
     // Mostra os elementos armazenados
     printf("\nVoce digitou:\n");
-    for (int i = 0; i < tamanho; i++) {
+    for(int i = 0; i < tamanho; i++){
         printf("%d ", vetor[i]);
     }
     printf("\n");
