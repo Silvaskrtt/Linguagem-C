@@ -1,49 +1,47 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main() {
     int *vetor = NULL;
-    int capacidade = 2;  // capacidade inicial
-    int tamanho = 0;     // número real de elementos inseridos
-    int numero;
+    int capacidade = 2, tamanho = 0, numero;
+    char entrada[20];
 
-    vetor = (int *) malloc(capacidade * sizeof(int));
-    if(vetor == NULL){
+    vetor = malloc(capacidade * sizeof(int));
+    if(!vetor){
         printf("Erro ao alocar memoria.\n");
         return 1;
     }
 
     printf("Digite numeros inteiros (digite 'p' para parar):\n");
-
     while(1){
         printf("Numero %d: ", tamanho + 1);
-        scanf("%d", &numero);
+        scanf("%s", entrada);
 
-        if(numero == 'p')
+        if(strcmp(entrada, "p") == 0)
             break;
 
-        // Cresce o vetor se necessário
-        if(tamanho == capacidade){
+        numero = atoi(entrada);
+
+        if(tamanho == capacidade) {
             capacidade *= 2;
-            vetor = (int *) realloc(vetor, capacidade * sizeof(int));
-            if (vetor == NULL) {
+            int *temp = realloc(vetor, capacidade * sizeof(int));
+            if (!temp) {
                 printf("Erro ao realocar memoria.\n");
+                free(vetor);
                 return 1;
             }
+            vetor = temp;
         }
 
-        vetor[tamanho] = numero;
-        tamanho++;
+        vetor[tamanho++] = numero;
     }
 
-    // Mostra os elementos armazenados
     printf("\nVoce digitou:\n");
-    for(int i = 0; i < tamanho; i++){
+    for (int i = 0; i < tamanho; i++)
         printf("%d ", vetor[i]);
-    }
     printf("\n");
 
-    free(vetor); // Libera memória
-
+    free(vetor);
     return 0;
 }
