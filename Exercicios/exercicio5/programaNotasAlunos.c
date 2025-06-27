@@ -5,7 +5,7 @@
 // Função para calcular a média das notas
 float mediaNota(float *vetor, int tamanho) {
     float soma = 0.0;
-    for (int i = 0; i < tamanho; i++) {
+    for(int i = 0; i < tamanho; i++) {
         soma += vetor[i];
     }
     return soma / tamanho;
@@ -26,15 +26,15 @@ int main() {
 
     // Aloca memória para armazenar as notas
     notas = (float *)malloc(quantidadeAlunos * sizeof(float));
-    if (notas == NULL) {
+    if(notas == NULL){
         printf("Erro ao alocar memeria!\n");
         return 1;
     }
 
     system("cls");
-    
+
     // Recebe as notas dos alunos
-    for (i = 0; i < quantidadeAlunos; i++) {
+    for(i = 0; i < quantidadeAlunos; i++){
         printf("Digite a nota do aluno %d: ", i + 1);
         scanf("%f", &notas[i]);
     }
@@ -44,7 +44,7 @@ int main() {
     printf("\nMedia das notas: %.2f\n", media);
 
     // Conta quantos alunos ficaram acima da média
-    for (i = 0; i < quantidadeAlunos; i++) {
+    for(i = 0; i < quantidadeAlunos; i++){
         if (notas[i] > media) {
             acimaDaMedia++;
         }
