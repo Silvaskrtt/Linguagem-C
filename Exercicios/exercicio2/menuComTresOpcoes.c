@@ -35,5 +35,6 @@
             scanf(" %d", &operadoes);
         }
         
+        for(a)
 
     }
