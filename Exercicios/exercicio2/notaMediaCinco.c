@@ -47,6 +47,5 @@ int main() {
     }else{
         printf("Ta reprovado vagabundo!\n%.2f tua media ai!", resultadomedia);
     }
-
     return 0;
 }
